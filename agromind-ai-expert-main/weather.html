@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Weather Forecast | Agro AI</title>
+  <meta name="description" content="Get real-time local weather data and farming-specific recommendations powered by Open-Meteo.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Live Weather Forecast | Agro AI">
+  <meta property="og:description" content="Get real-time local weather data and farming-specific recommendations powered by Open-Meteo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/weather.html">
+  <!-- Theme flash prevention -->
+  <script>(function(){ const t = localStorage.getItem('agroai-theme'); if(t) document.documentElement.setAttribute('data-theme', t); })()</script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+          <i data-lucide="sprout"></i>
+          <span>Agro AI</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar__menu" id="nav-menu" role="list">
+          <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+          <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+          <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+          <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+          <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+          <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+          <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+
+        <!-- Navbar Actions -->
+        <div class="navbar__actions">
+          <!-- Dark Mode Toggle -->
+          <button
+            class="btn-icon dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Switch to dark mode"
+            type="button"
+          >
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+
+          <!-- Get Started CTA -->
+          <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+          <!-- Hamburger Menu (mobile only) -->
+          <button
+            class="btn-icon hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <span class="section-header__eyebrow">Live Data</span>
+        <h1 class="page-header__title">Weather Forecast</h1>
+        <p class="page-header__subtitle">Get real-time weather data and farming-specific advice for any location in Ethiopia — or worldwide — powered by Open-Meteo.</p>
+      </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather-section section" aria-labelledby="weather-heading">
+      <div class="container">
+        <h2 class="visually-hidden" id="weather-heading">Weather Data</h2>
+
+        <!-- Location Search -->
+        <div class="weather-search">
+          <div class="weather-search__input-wrap">
+            <label class="form-label" for="location">Enter City or Location</label>
+            <input
+              type="text"
+              id="location"
+              class="form-input"
+              placeholder="e.g. Addis Ababa, Adama, Jimma"
+              aria-label="City name"
+              autocomplete="off"
+            >
+            <span class="field-error" id="location-error" role="alert"></span>
+          </div>
+          <button
+            class="btn btn--primary btn--lg"
+            id="get-weather-btn"
+            type="button"
+            style="align-self:flex-end;min-width:160px"
+          >
+            <i data-lucide="search"></i>
+            Get Weather
+          </button>
+        </div>
+
+        <!-- Loading indicator (hidden initially) -->
+        <div class="loading-indicator" id="weather-loading" hidden aria-live="polite" aria-label="Loading weather data">
+          <div class="spinner" aria-hidden="true"></div>
+          <span>Fetching weather data…</span>
+        </div>
+
+        <!-- Error message (hidden initially) -->
+        <p class="weather-error" id="weather-error" role="alert" hidden></p>
+
+        <!-- Weather Cards Grid (hidden initially) -->
+        <div id="weather-cards" hidden>
+          <div class="weather-cards-grid">
+            <!-- Temperature -->
+            <div class="weather-card" id="card-temperature">
+              <div class="weather-card__icon" style="background:rgba(229,57,53,0.10);color:#E53935">
+                <i data-lucide="thermometer"></i>
+              </div>
+              <p class="weather-card__label">Temperature</p>
+              <p class="weather-card__value"><span id="val-temperature">—</span><span class="weather-card__unit"> °C</span></p>
+            </div>
+            <!-- Humidity -->
+            <div class="weather-card" id="card-humidity">
+              <div class="weather-card__icon" style="background:rgba(66,165,245,0.10);color:var(--sky-blue)">
+                <i data-lucide="droplets"></i>
+              </div>
+              <p class="weather-card__label">Humidity</p>
+              <p class="weather-card__value"><span id="val-humidity">—</span><span class="weather-card__unit"> %</span></p>
+            </div>
+            <!-- Rainfall -->
+            <div class="weather-card" id="card-rainfall">
+              <div class="weather-card__icon" style="background:rgba(66,165,245,0.12);color:#1565C0">
+                <i data-lucide="cloud-rain"></i>
+              </div>
+              <p class="weather-card__label">Rainfall</p>
+              <p class="weather-card__value"><span id="val-rainfall">—</span><span class="weather-card__unit"> mm</span></p>
+            </div>
+            <!-- Wind Speed -->
+            <div class="weather-card" id="card-wind">
+              <div class="weather-card__icon" style="background:rgba(141,110,99,0.10);color:var(--earth-brown)">
+                <i data-lucide="wind"></i>
+              </div>
+              <p class="weather-card__label">Wind Speed</p>
+              <p class="weather-card__value"><span id="val-wind">—</span><span class="weather-card__unit"> km/h</span></p>
+            </div>
+            <!-- UV Index -->
+            <div class="weather-card" id="card-uv">
+              <div class="weather-card__icon" style="background:rgba(251,140,0,0.10);color:var(--accent-orange)">
+                <i data-lucide="sun"></i>
+              </div>
+              <p class="weather-card__label">UV Index</p>
+              <p class="weather-card__value"><span id="val-uv">—</span></p>
+            </div>
+            <!-- Sunrise -->
+            <div class="weather-card" id="card-sunrise">
+              <div class="weather-card__icon" style="background:rgba(251,140,0,0.08);color:#F57F17">
+                <i data-lucide="sunrise"></i>
+              </div>
+              <p class="weather-card__label">Sunrise</p>
+              <p class="weather-card__value" style="font-size:1.2rem"><span id="val-sunrise">—</span></p>
+            </div>
+            <!-- Sunset -->
+            <div class="weather-card" id="card-sunset">
+              <div class="weather-card__icon" style="background:rgba(57,73,171,0.10);color:#3949AB">
+                <i data-lucide="sunset"></i>
+              </div>
+              <p class="weather-card__label">Sunset</p>
+              <p class="weather-card__value" style="font-size:1.2rem"><span id="val-sunset">—</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Farming Advice (hidden initially) -->
+        <section class="weather-advice" id="farming-advice" hidden aria-labelledby="advice-heading">
+          <h3 class="weather-advice__title" id="advice-heading">
+            <i data-lucide="sprout"></i>
+            Today's Farming Advice
+          </h3>
+          <p id="today-advice-text">—</p>
+        </section>
+
+        <!-- Tomorrow's Recommendation (hidden initially) -->
+        <section class="weather-advice" id="tomorrow-advice" hidden aria-labelledby="tomorrow-heading">
+          <h3 class="weather-advice__title" id="tomorrow-heading">
+            <i data-lucide="calendar-days"></i>
+            Tomorrow's Recommendation
+          </h3>
+          <p id="tomorrow-advice-text">—</p>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Footer Logo & Tagline -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Agro AI Home">
+            <i data-lucide="sprout"></i>
+            <span>Agro AI</span>
+          </a>
+          <p class="footer__tagline">Smarter Farming with AI — for Ethiopia and Oromia</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__menu" role="list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="disease.html" class="footer__link">Disease Detection</a></li>
+            <li><a href="weather.html" class="footer__link">Weather</a></li>
+            <li><a href="recommendation.html" class="footer__link">Crop Recommendation</a></li>
+            <li><a href="learning.html" class="footer__link">Learning Center</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer__social-section">
+          <h4 class="footer__heading">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Follow us on Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Connect on LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Agro AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+  <!-- Page-specific JS -->
+  <script src="assets/js/weather.js"></script>
+</body>
+</html>

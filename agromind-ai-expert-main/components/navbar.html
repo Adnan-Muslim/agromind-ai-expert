@@ -1,0 +1,59 @@
+<!-- 
+  navbar.html — Reference Template
+  This is a canonical reference template for the Agro AI navbar.
+  The navbar HTML is inlined directly into each of the 7 HTML pages.
+  Any changes here should be manually propagated to all pages.
+-->
+
+<!-- Navigation -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+        <i data-lucide="sprout"></i>
+        <span>Agro AI</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="navbar__menu" id="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+        <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+        <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+        <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+
+      <!-- Navbar Actions -->
+      <div class="navbar__actions">
+        <!-- Dark Mode Toggle -->
+        <button
+          class="btn-icon dark-mode-toggle"
+          id="dark-mode-toggle"
+          aria-label="Switch to dark mode"
+          type="button"
+        >
+          <i data-lucide="moon" id="theme-icon"></i>
+        </button>
+
+        <!-- Get Started CTA -->
+        <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+        <!-- Hamburger Menu (mobile only) -->
+        <button
+          class="btn-icon hamburger"
+          id="hamburger-btn"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          type="button"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>

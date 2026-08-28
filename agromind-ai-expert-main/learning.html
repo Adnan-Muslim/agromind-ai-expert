@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Center | Agro AI</title>
+  <meta name="description" content="Browse articles, videos, and guides on crop management, soil health, pest control, and sustainable farming.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Learning Center | Agro AI">
+  <meta property="og:description" content="Browse articles, videos, and guides on crop management, soil health, pest control, and sustainable farming.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/learning.html">
+  <!-- Theme flash prevention -->
+  <script>(function(){ const t = localStorage.getItem('agroai-theme'); if(t) document.documentElement.setAttribute('data-theme', t); })()</script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+          <i data-lucide="sprout"></i>
+          <span>Agro AI</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar__menu" id="nav-menu" role="list">
+          <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+          <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+          <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+          <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+          <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+          <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+          <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+
+        <!-- Navbar Actions -->
+        <div class="navbar__actions">
+          <!-- Dark Mode Toggle -->
+          <button
+            class="btn-icon dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Switch to dark mode"
+            type="button"
+          >
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+
+          <!-- Get Started CTA -->
+          <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+          <!-- Hamburger Menu (mobile only) -->
+          <button
+            class="btn-icon hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <section class="learning-hero" aria-label="Learning Center introduction">
+      <div class="container">
+        <div class="learning-hero__content">
+          <span class="hero__eyebrow">Knowledge Hub</span>
+          <h1 class="learning-hero__title">Learning Center</h1>
+          <p class="learning-hero__subtitle">Explore expert articles, video guides, and in-depth tutorials across every aspect of modern farming in Ethiopia — from soil science to smart technology, tailored to Oromia and beyond.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Center Main Section -->
+    <section class="learning-section" aria-label="Agricultural learning resources">
+      <div class="container">
+
+        <!-- Category Navigation -->
+        <nav role="tablist" aria-label="Learning categories" class="category-tablist" id="category-tablist">
+          <button role="tab" class="category-tab" aria-selected="true"  data-category="crop-management"    id="tab-crop-management"    aria-controls="content-grid">Crop Management</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="soil-health"        id="tab-soil-health"        aria-controls="content-grid">Soil Health</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="pest-control"       id="tab-pest-control"       aria-controls="content-grid">Pest Control</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="irrigation"         id="tab-irrigation"         aria-controls="content-grid">Irrigation</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="fertilization"      id="tab-fertilization"      aria-controls="content-grid">Fertilization</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="weather-climate"    id="tab-weather-climate"    aria-controls="content-grid">Weather &amp; Climate</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="market-trade"       id="tab-market-trade"       aria-controls="content-grid">Market &amp; Trade</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="technology"         id="tab-technology"         aria-controls="content-grid">Technology</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="sustainable-farming" id="tab-sustainable-farming" aria-controls="content-grid">Sustainable Farming</button>
+          <button role="tab" class="category-tab" aria-selected="false" data-category="animal-husbandry"   id="tab-animal-husbandry"   aria-controls="content-grid">Animal Husbandry</button>
+        </nav>
+
+        <!-- Content Cards Grid -->
+        <div id="content-grid" class="content-grid" role="region" aria-label="Learning content cards" aria-live="polite">
+
+          <!-- ===== CROP MANAGEMENT (3 cards) ===== -->
+          <article class="content-card" data-category="crop-management">
+            <div class="card-thumbnail">
+              <i data-lucide="sprout"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Seasonal Crop Planning: A Complete Guide</h3>
+              <p class="card-description">Learn how to plan your crop calendar based on climate zones, soil readiness, and market demand cycles to maximize annual yields.</p>
+              <a href="#" class="cta-link" aria-label="Read more about seasonal crop planning">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="crop-management">
+            <div class="card-thumbnail">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Intercropping Techniques for Higher Yields</h3>
+              <p class="card-description">This video tutorial demonstrates how to pair compatible crops to improve land productivity, reduce pests, and enhance soil nutrients simultaneously.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on intercropping techniques">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="crop-management">
+            <div class="card-thumbnail">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Crop Rotation Best Practices</h3>
+              <p class="card-description">A step-by-step guide on implementing multi-year crop rotation schedules that break pest cycles, restore soil fertility, and reduce input costs.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on crop rotation">Read Guide →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="crop-management">
+            <div class="card-thumbnail">
+              <i data-lucide="leaf"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Choosing the Right Seed Varieties</h3>
+              <p class="card-description">Understand how to evaluate seed catalogs, hybrid versus open-pollinated varieties, and disease-resistant cultivars suited to your microclimate.</p>
+              <a href="#" class="cta-link" aria-label="Read more about choosing seed varieties">Read More →</a>
+            </div>
+          </article>
+
+          <!-- ===== SOIL HEALTH (3 cards) ===== -->
+          <article class="content-card" data-category="soil-health">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #8D6E63, #A1887F);">
+              <i data-lucide="layers"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Understanding Soil pH and Plant Nutrition</h3>
+              <p class="card-description">Explore how soil pH affects nutrient availability, how to test your soil accurately, and which amendments to apply to correct imbalances.</p>
+              <a href="#" class="cta-link" aria-label="Read more about soil pH and nutrition">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="soil-health">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #8D6E63, #A1887F);">
+              <i data-lucide="microscope"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Building Soil Microbial Life</h3>
+              <p class="card-description">Discover how mycorrhizal fungi, bacteria, and other soil organisms drive fertility, and practical ways to promote a thriving soil ecosystem on your farm.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on soil microbial life">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="soil-health">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #8D6E63, #A1887F);">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Composting for Soil Enrichment</h3>
+              <p class="card-description">A practical guide to building and managing compost systems on-farm — from selecting materials and maintaining moisture to applying finished compost effectively.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on composting">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== PEST CONTROL (3 cards) ===== -->
+          <article class="content-card" data-category="pest-control">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #E53935, #EF5350);">
+              <i data-lucide="bug"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Integrated Pest Management (IPM) Fundamentals</h3>
+              <p class="card-description">Learn the four IPM pillars — biological, cultural, physical, and chemical controls — and how to combine them for effective, low-residue pest management.</p>
+              <a href="#" class="cta-link" aria-label="Read more about integrated pest management">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="pest-control">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #E53935, #EF5350);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Identifying Common Crop Diseases Early</h3>
+              <p class="card-description">This visual walkthrough helps farmers recognize early warning signs of fungal, bacterial, and viral diseases before they spread across the field.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on identifying crop diseases">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="pest-control">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #E53935, #EF5350);">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Natural Pesticide Recipes and Application</h3>
+              <p class="card-description">A guide to preparing and applying neem oil, garlic spray, diatomaceous earth, and other organic pesticides safely and effectively on crops.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on natural pesticides">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== IRRIGATION (3 cards) ===== -->
+          <article class="content-card" data-category="irrigation">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #0288D1, #29B6F6);">
+              <i data-lucide="droplets"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Drip Irrigation: Setup and Water Savings</h3>
+              <p class="card-description">Explore how drip irrigation systems work, their cost-benefit over surface irrigation, and a step-by-step breakdown of layout planning for row crops.</p>
+              <a href="#" class="cta-link" aria-label="Read more about drip irrigation">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="irrigation">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #0288D1, #29B6F6);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Soil Moisture Monitoring Techniques</h3>
+              <p class="card-description">Learn to use tensiometers, capacitance sensors, and hand-feel methods to monitor soil moisture and schedule irrigations at the right time for optimal crop uptake.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on soil moisture monitoring">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="irrigation">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #0288D1, #29B6F6);">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Rainwater Harvesting for Small Farms</h3>
+              <p class="card-description">A practical guide to designing, building, and maintaining rainwater collection systems that supplement irrigation needs during dry seasons.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on rainwater harvesting">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== FERTILIZATION (3 cards) ===== -->
+          <article class="content-card" data-category="fertilization">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #F57F17, #FFB300);">
+              <i data-lucide="flask-conical"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">NPK Ratios Explained for Every Crop</h3>
+              <p class="card-description">Break down the meaning of nitrogen, phosphorus, and potassium in fertilizer labels and learn which ratios support vegetative growth, rooting, and fruiting stages.</p>
+              <a href="#" class="cta-link" aria-label="Read more about NPK ratios">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="fertilization">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #F57F17, #FFB300);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Foliar Feeding: Benefits and Techniques</h3>
+              <p class="card-description">This tutorial covers when and how to apply liquid fertilizers directly to leaves for rapid nutrient uptake, correcting deficiencies quickly between soil applications.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on foliar feeding">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="fertilization">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #F57F17, #FFB300);">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Organic Fertilizers: Sources and Application Rates</h3>
+              <p class="card-description">A guide to blood meal, bone meal, fish emulsion, worm castings, and other organic nutrient sources — including how to calculate application rates for your acreage.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on organic fertilizers">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== WEATHER & CLIMATE (3 cards) ===== -->
+          <article class="content-card" data-category="weather-climate">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #1565C0, #42A5F5);">
+              <i data-lucide="cloud-sun"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Reading Weather Forecasts for Farm Planning</h3>
+              <p class="card-description">Understand how to interpret 7-day and 14-day forecasts, identify frost risk windows, and use weather data to time planting, spraying, and harvest operations.</p>
+              <a href="#" class="cta-link" aria-label="Read more about weather forecasts for farming">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="weather-climate">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #1565C0, #42A5F5);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Climate-Resilient Farming Strategies</h3>
+              <p class="card-description">Explore adaptation strategies for managing increasingly variable rainfall, heat waves, and early frosts through diversification, shade networks, and cover cropping.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on climate-resilient farming">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="weather-climate">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #1565C0, #42A5F5);">
+              <i data-lucide="thermometer"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Frost Protection Methods for Crops</h3>
+              <p class="card-description">A practical guide to row covers, wind machines, irrigation-based frost protection, and site selection strategies that safeguard sensitive crops from late-season frosts.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on frost protection">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== MARKET & TRADE (3 cards) ===== -->
+          <article class="content-card" data-category="market-trade">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #4527A0, #7E57C2);">
+              <i data-lucide="trending-up"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Accessing Local and Regional Farmers Markets</h3>
+              <p class="card-description">Learn how to apply for market stalls, price your produce competitively, build customer loyalty, and navigate wholesale versus direct-to-consumer sales channels.</p>
+              <a href="#" class="cta-link" aria-label="Read more about farmers markets">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="market-trade">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #4527A0, #7E57C2);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Commodity Price Trends and How to React</h3>
+              <p class="card-description">This video breaks down how to read commodity charts, understand futures pricing, and make forward-contract decisions to protect your farm income from volatility.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on commodity price trends">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="market-trade">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #4527A0, #7E57C2);">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Export Certification for Agricultural Produce</h3>
+              <p class="card-description">Navigate phytosanitary requirements, GlobalGAP certification, and export documentation step by step to open your farm's produce to international buyers.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on export certification">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== TECHNOLOGY (3 cards) ===== -->
+          <article class="content-card" data-category="technology">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #00695C, #26A69A);">
+              <i data-lucide="cpu"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Drone Scouting: Getting Started on Your Farm</h3>
+              <p class="card-description">Discover how agricultural drones enable rapid field scouting, NDVI mapping for crop health assessment, and targeted spray applications that reduce chemical use.</p>
+              <a href="#" class="cta-link" aria-label="Read more about drone scouting">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="technology">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #00695C, #26A69A);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">IoT Sensors for Smart Farm Monitoring</h3>
+              <p class="card-description">See how low-cost IoT soil and weather sensors connect to dashboards that give real-time alerts, helping farmers respond immediately to field stress events.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on IoT farm sensors">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="technology">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #00695C, #26A69A);">
+              <i data-lucide="bot"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">AI-Powered Disease Detection: How It Works</h3>
+              <p class="card-description">A technical yet accessible guide explaining the machine learning pipeline behind image-based crop disease detection, from data collection to model deployment on mobile devices.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on AI disease detection">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== SUSTAINABLE FARMING (3 cards) ===== -->
+          <article class="content-card" data-category="sustainable-farming">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #2E7D32, #81C784);">
+              <i data-lucide="recycle"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Regenerative Agriculture: Principles and Practice</h3>
+              <p class="card-description">Go beyond sustainability with regenerative practices that actively rebuild soil carbon, restore biodiversity, and improve farm resilience over the long term.</p>
+              <a href="#" class="cta-link" aria-label="Read more about regenerative agriculture">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="sustainable-farming">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #2E7D32, #81C784);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Cover Cropping for Soil Protection</h3>
+              <p class="card-description">This video explains how cover crops like clover, rye, and vetch protect soil from erosion, fix nitrogen, suppress weeds, and feed soil biology during off-seasons.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on cover cropping">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="sustainable-farming">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #2E7D32, #81C784);">
+              <i data-lucide="sun"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Solar Energy Integration on Farms</h3>
+              <p class="card-description">A step-by-step guide to evaluating solar panel ROI for farm operations, including irrigation pumps, cold storage, grain drying, and agrivoltaic dual-use systems.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on solar energy for farms">Read Guide →</a>
+            </div>
+          </article>
+
+          <!-- ===== ANIMAL HUSBANDRY (3 cards) ===== -->
+          <article class="content-card" data-category="animal-husbandry">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #BF360C, #FF7043);">
+              <i data-lucide="beef"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--article">Article</span>
+              <h3 class="card-title">Pasture Management for Livestock Health</h3>
+              <p class="card-description">Learn rotational grazing principles, stocking density calculations, and pasture recovery timelines that keep forage quality high and animals healthy year-round.</p>
+              <a href="#" class="cta-link" aria-label="Read more about pasture management">Read More →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="animal-husbandry">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #BF360C, #FF7043);">
+              <i data-lucide="video"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--video">Video</span>
+              <h3 class="card-title">Poultry Vaccination Schedules Explained</h3>
+              <p class="card-description">A walkthrough of core and optional vaccines for broilers and layers, covering timing, administration routes, and record-keeping to meet biosecurity standards.</p>
+              <a href="#" class="cta-link" aria-label="Watch video on poultry vaccination">Watch Now →</a>
+            </div>
+          </article>
+
+          <article class="content-card" data-category="animal-husbandry">
+            <div class="card-thumbnail" style="background: linear-gradient(135deg, #BF360C, #FF7043);">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="card-body">
+              <span class="badge badge--guide">Guide</span>
+              <h3 class="card-title">Feed Formulation for Dairy Cattle</h3>
+              <p class="card-description">A nutritionist-reviewed guide to balancing energy, protein, minerals, and vitamins in dairy rations to support peak milk production without compromising animal health.</p>
+              <a href="#" class="cta-link" aria-label="Read guide on dairy cattle feed formulation">Read Guide →</a>
+            </div>
+          </article>
+
+        </div><!-- /#content-grid -->
+
+      </div><!-- /.container -->
+    </section>
+
+    <!-- Inline script: category filtering -->
+    <script>
+      (function () {
+        var tablist  = document.getElementById('category-tablist');
+        var grid     = document.getElementById('content-grid');
+
+        if (!tablist || !grid) return;
+
+        var tabs  = Array.from(tablist.querySelectorAll('[role="tab"]'));
+        var cards = Array.from(grid.querySelectorAll('.content-card'));
+
+        function showCategory(slug) {
+          tabs.forEach(function (t) {
+            var active = t.getAttribute('data-category') === slug;
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          cards.forEach(function (c) {
+            c.style.display = c.getAttribute('data-category') === slug ? '' : 'none';
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            showCategory(tab.getAttribute('data-category'));
+          });
+          tab.addEventListener('keydown', function (e) {
+            var idx = tabs.indexOf(tab);
+            if (e.key === 'ArrowRight') { tabs[(idx + 1) % tabs.length].focus(); e.preventDefault(); }
+            if (e.key === 'ArrowLeft')  { tabs[(idx - 1 + tabs.length) % tabs.length].focus(); e.preventDefault(); }
+            if (e.key === 'Home')       { tabs[0].focus(); e.preventDefault(); }
+            if (e.key === 'End')        { tabs[tabs.length - 1].focus(); e.preventDefault(); }
+          });
+        });
+
+        // Initialise: show first category
+        showCategory('crop-management');
+      })();
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Footer Logo & Tagline -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Agro AI Home">
+            <i data-lucide="sprout"></i>
+            <span>Agro AI</span>
+          </a>
+          <p class="footer__tagline">Smarter Farming with AI — for Ethiopia and Oromia</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__menu" role="list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="disease.html" class="footer__link">Disease Detection</a></li>
+            <li><a href="weather.html" class="footer__link">Weather</a></li>
+            <li><a href="recommendation.html" class="footer__link">Crop Recommendation</a></li>
+            <li><a href="learning.html" class="footer__link">Learning Center</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer__social-section">
+          <h4 class="footer__heading">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Follow us on Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Connect on LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Agro AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

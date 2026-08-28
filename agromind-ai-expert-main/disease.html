@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Disease Detection | Agro AI</title>
+  <meta name="description" content="Upload a crop image to identify plant diseases early with Agro AI's intelligent detection tool.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Disease Detection | Agro AI">
+  <meta property="og:description" content="Upload a crop image to identify plant diseases early with Agro AI's intelligent detection tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/disease.html">
+  <!-- Theme flash prevention -->
+  <script>(function(){ const t = localStorage.getItem('agroai-theme'); if(t) document.documentElement.setAttribute('data-theme', t); })()</script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+          <i data-lucide="sprout"></i>
+          <span>Agro AI</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar__menu" id="nav-menu" role="list">
+          <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+          <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+          <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+          <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+          <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+          <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+          <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+
+        <!-- Navbar Actions -->
+        <div class="navbar__actions">
+          <!-- Dark Mode Toggle -->
+          <button
+            class="btn-icon dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Switch to dark mode"
+            type="button"
+          >
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+
+          <!-- Get Started CTA -->
+          <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+          <!-- Hamburger Menu (mobile only) -->
+          <button
+            class="btn-icon hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <span class="section-header__eyebrow">AI-Powered Diagnostic Tool</span>
+        <h1 class="page-header__title">Crop Disease Detection</h1>
+        <p class="page-header__subtitle">
+          Upload a photograph of an affected plant, and our AI system will identify the disease and provide a detailed report covering causes, treatment options, and prevention.
+        </p>
+      </div>
+    </section>
+
+    <!-- Disease Detection Upload Section -->
+    <section class="upload-section section" aria-labelledby="upload-heading">
+      <div class="container">
+        <div class="upload-wrapper">
+
+          <!-- Upload Area -->
+          <div
+            class="upload-area"
+            id="upload-area"
+            role="region"
+            aria-label="Image upload area"
+            aria-describedby="upload-instructions"
+          >
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-input"
+              accept="image/jpeg,image/png,image/webp"
+              class="visually-hidden"
+              aria-label="Choose a crop image file"
+            >
+
+            <!-- Upload icon and instructions (shown in IDLE state) -->
+            <div class="upload-area__prompt" id="upload-prompt">
+              <div class="upload-area__icon">
+                <i data-lucide="cloud-upload"></i>
+              </div>
+              <h2 class="upload-area__title" id="upload-heading">Drag &amp; Drop Your Crop Image</h2>
+              <p class="upload-area__subtitle" id="upload-instructions">
+                Drop your image here, or click the button below to browse
+              </p>
+              <p class="upload-area__supported">Supported formats: JPEG, PNG, WebP &nbsp;·&nbsp; Max size: 10 MB</p>
+              <label for="file-input" class="btn btn--primary" style="margin-top:1rem;cursor:pointer">
+                <i data-lucide="folder-open"></i>
+                Choose Image
+              </label>
+            </div>
+
+            <!-- Image preview (shown when image loaded) -->
+            <div class="upload-preview" id="upload-preview" hidden>
+              <img
+                class="upload-preview__img"
+                id="preview-img"
+                src=""
+                alt="Selected crop image preview"
+              >
+              <button
+                class="upload-preview__reset"
+                id="reset-btn"
+                type="button"
+                aria-label="Remove selected image and start over"
+              >
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- Spinner overlay (shown during analysis) -->
+            <div
+              class="spinner-overlay"
+              id="spinner-overlay"
+              hidden
+              aria-live="polite"
+              aria-label="Analysing image, please wait"
+            >
+              <div class="spinner" aria-hidden="true"></div>
+              <p id="spinner-text">Analysing your crop image, please wait…</p>
+            </div>
+          </div>
+
+          <!-- Inline error message (role=alert so screen readers announce it) -->
+          <p class="upload-error" id="upload-error" role="alert" hidden></p>
+
+          <!-- Analyze button -->
+          <div class="upload-actions" id="upload-actions">
+            <button
+              class="btn btn--primary btn--lg"
+              id="analyze-btn"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
+              <i data-lucide="scan-line"></i>
+              Analyse Image
+            </button>
+          </div>
+
+        </div>
+
+        <!-- AI Result Panel — content injected dynamically by upload.js -->
+        <div class="result-panel" id="result-panel" hidden></div>
+
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" style="background:var(--surface);border-top:1px solid var(--border)" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-header__eyebrow">Simple Process</span>
+          <h2 class="section-header__title" id="how-heading">How It Works</h2>
+        </div>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step__number">1</div>
+            <i data-lucide="camera" class="how-step__icon"></i>
+            <h3>Capture a Photograph</h3>
+            <p>Take a clear, well-lit photograph of the affected leaf or plant part.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number">2</div>
+            <i data-lucide="upload" class="how-step__icon"></i>
+            <h3>Upload the Image</h3>
+            <p>Drag and drop, or browse to upload, a JPEG, PNG, or WebP file.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number">3</div>
+            <i data-lucide="cpu" class="how-step__icon"></i>
+            <h3>Automated Analysis</h3>
+            <p>The system examines the image and identifies the disease within seconds.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number">4</div>
+            <i data-lucide="clipboard-list" class="how-step__icon"></i>
+            <h3>Review the Report</h3>
+            <p>Receive a detailed report covering treatment, prevention, and recovery guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Footer Logo & Tagline -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Agro AI Home">
+            <i data-lucide="sprout"></i>
+            <span>Agro AI</span>
+          </a>
+          <p class="footer__tagline">Smarter Farming with AI — for Ethiopia and Oromia</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__menu" role="list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="disease.html" class="footer__link">Disease Detection</a></li>
+            <li><a href="weather.html" class="footer__link">Weather</a></li>
+            <li><a href="recommendation.html" class="footer__link">Crop Recommendation</a></li>
+            <li><a href="learning.html" class="footer__link">Learning Center</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer__social-section">
+          <h4 class="footer__heading">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Follow us on Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Connect on LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Agro AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+  <!-- Page-specific JS -->
+  <script src="assets/js/upload.js"></script>
+</body>
+</html>
