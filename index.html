@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Smarter Farming with AI | Agro AI</title>
+  <meta name="description" content="Agro AI empowers farmers across Ethiopia and Oromia with AI-driven disease detection, crop recommendations, and live weather insights.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Home — Smarter Farming with AI | Agro AI">
+  <meta property="og:description" content="Agro AI empowers farmers across Ethiopia and Oromia with AI-driven disease detection, crop recommendations, and live weather insights.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/index.html">
+  <!-- Theme flash prevention -->
+  <script>(function(){ const t = localStorage.getItem('agroai-theme'); if(t) document.documentElement.setAttribute('data-theme', t); })()</script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+          <i data-lucide="sprout"></i>
+          <span>Agro AI</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar__menu" id="nav-menu" role="list">
+          <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+          <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+          <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+          <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+          <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+          <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+          <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+
+        <!-- Navbar Actions -->
+        <div class="navbar__actions">
+          <!-- Dark Mode Toggle -->
+          <button
+            class="btn-icon dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Switch to dark mode"
+            type="button"
+          >
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+
+          <!-- Get Started CTA -->
+          <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+          <!-- Hamburger Menu (mobile only) -->
+          <button
+            class="btn-icon hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Welcome to Agro AI">
+      <div class="hero__content">
+        <span class="hero__eyebrow">AI for Ethiopian Agriculture</span>
+        <h1 class="hero__title">Smarter Farming for<br>Ethiopia and Oromia</h1>
+        <p class="hero__subtitle">
+          Agro AI empowers farmers across Ethiopia — from the highlands of Oromia to 
+          Addis Ababa and beyond — with instant crop disease detection, crop 
+          recommendations grounded in local conditions, live weather insights, and a 
+          world-class learning centre, all in one place.
+        </p>
+        <div class="hero__actions">
+          <a href="disease.html" class="btn btn--primary btn--lg">
+            <i data-lucide="scan-line"></i>
+            Start Diagnosis
+          </a>
+          <a href="#features" class="btn btn--outline-white btn--lg">
+            <i data-lucide="layout-grid"></i>
+            Explore Features
+          </a>
+        </div>
+      </div>
+
+      <!-- Decorative background elements -->
+      <div class="hero__bg-shape hero__bg-shape--1" aria-hidden="true"></div>
+      <div class="hero__bg-shape hero__bg-shape--2" aria-hidden="true"></div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <i data-lucide="chevron-down"></i>
+        <span>Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar" aria-label="Agro AI by the numbers">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-item__value">50K+</span>
+            <span class="stat-item__label">Farmers Helped</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__value">120+</span>
+            <span class="stat-item__label">Crop Varieties</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__value">95%</span>
+            <span class="stat-item__label">Detection Accuracy</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-item__value">Nationwide</span>
+            <span class="stat-item__label">Coverage Across Ethiopia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-header__eyebrow">What We Offer</span>
+          <h2 class="section-header__title" id="features-heading">Everything a Farmer Needs</h2>
+          <p class="section-header__subtitle">
+            Eight powerful tools built around real farming challenges — from disease 
+            detection to market insights, all powered by AI.
+          </p>
+        </div>
+
+        <div class="features-grid">
+
+          <!-- Card 1: Disease Detection -->
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <i data-lucide="scan-line"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Crop Disease Detection</h3>
+              <p class="feature-card__description">
+                Upload a photo of your crop and our AI instantly identifies diseases, 
+                causes, and treatments — saving your harvest before it's too late.
+              </p>
+            </div>
+            <a href="disease.html" class="cta-link">Try it now <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 2: Crop Recommendation -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(251,140,0,0.10);color:var(--accent-orange)">
+              <i data-lucide="sprout"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Crop Recommendation</h3>
+              <p class="feature-card__description">
+                Enter your soil type, climate, and season to receive tailored crop 
+                suggestions with expected yield and profitability estimates.
+              </p>
+            </div>
+            <a href="recommendation.html" class="cta-link">Get recommendations <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 3: Weather Forecast -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(66,165,245,0.10);color:var(--sky-blue)">
+              <i data-lucide="cloud-sun"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Weather Forecast</h3>
+              <p class="feature-card__description">
+                Real-time, hyperlocal weather data with farming-specific advice on 
+                irrigation, planting windows, and harvest timing.
+              </p>
+            </div>
+            <a href="weather.html" class="cta-link">Check weather <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 4: Pest Management -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(229,57,53,0.08);color:#C62828">
+              <i data-lucide="bug"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Pest Management</h3>
+              <p class="feature-card__description">
+                Identify common pests, understand infestation patterns, and get organic 
+                and chemical control strategies tailored to your region.
+              </p>
+            </div>
+            <a href="learning.html" class="cta-link">Learn more <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 5: Soil Information -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(141,110,99,0.10);color:var(--earth-brown)">
+              <i data-lucide="layers"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Soil Health Analysis</h3>
+              <p class="feature-card__description">
+                Understand your soil pH, nutrient levels, and structure to make smarter 
+                fertilisation decisions that boost long-term fertility.
+              </p>
+            </div>
+            <a href="recommendation.html" class="cta-link">Analyse soil <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 6: Learning Center -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(102,187,106,0.10);color:var(--secondary-green)">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Learning Center</h3>
+              <p class="feature-card__description">
+                Hundreds of expert articles, video guides, and step-by-step tutorials 
+                covering every aspect of modern and sustainable farming.
+              </p>
+            </div>
+            <a href="learning.html" class="cta-link">Start learning <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 7: AI Assistant -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(66,165,245,0.10);color:var(--sky-blue)">
+              <i data-lucide="bot"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">AI Assistant</h3>
+              <p class="feature-card__description">
+                Ask Agro AI anything — from planting schedules to pest control — and 
+                receive instant, evidence-based answers in plain language.
+              </p>
+            </div>
+            <a href="disease.html" class="cta-link">Ask Agro AI <i data-lucide="arrow-right"></i></a>
+          </article>
+
+          <!-- Card 8: Market Insights (Future) -->
+          <article class="feature-card">
+            <div class="feature-card__icon" style="background:rgba(251,140,0,0.10);color:var(--accent-orange)">
+              <i data-lucide="trending-up"></i>
+            </div>
+            <div>
+              <h3 class="feature-card__title">Market Insights</h3>
+              <p class="feature-card__description">
+                Stay ahead with live commodity prices, demand forecasts, and the best 
+                time to sell your produce for maximum profit. Coming soon.
+              </p>
+            </div>
+            <span class="badge badge--guide" style="width:fit-content;margin-top:auto">Coming Soon</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Footer Logo & Tagline -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Agro AI Home">
+            <i data-lucide="sprout"></i>
+            <span>Agro AI</span>
+          </a>
+          <p class="footer__tagline">Smarter Farming with AI — for Ethiopia and Oromia</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__menu" role="list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="disease.html" class="footer__link">Disease Detection</a></li>
+            <li><a href="weather.html" class="footer__link">Weather</a></li>
+            <li><a href="recommendation.html" class="footer__link">Crop Recommendation</a></li>
+            <li><a href="learning.html" class="footer__link">Learning Center</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer__social-section">
+          <h4 class="footer__heading">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Follow us on Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Connect on LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Agro AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

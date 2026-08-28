@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Recommendation | Agro AI</title>
+  <meta name="description" content="Enter your farm's conditions to receive personalized crop recommendations tailored to your environment.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crop Recommendation | Agro AI">
+  <meta property="og:description" content="Enter your farm's conditions to receive personalized crop recommendations tailored to your environment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/recommendation.html">
+  <!-- Theme flash prevention -->
+  <script>(function(){ const t = localStorage.getItem('agroai-theme'); if(t) document.documentElement.setAttribute('data-theme', t); })()</script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Agro AI Home">
+          <i data-lucide="sprout"></i>
+          <span>Agro AI</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="navbar__menu" id="nav-menu" role="list">
+          <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+          <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+          <li><a href="disease.html" class="nav-link" data-page="disease">Disease Detection</a></li>
+          <li><a href="weather.html" class="nav-link" data-page="weather">Weather</a></li>
+          <li><a href="recommendation.html" class="nav-link" data-page="recommendation">Crop Recommendation</a></li>
+          <li><a href="learning.html" class="nav-link" data-page="learning">Learning Center</a></li>
+          <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+
+        <!-- Navbar Actions -->
+        <div class="navbar__actions">
+          <!-- Dark Mode Toggle -->
+          <button
+            class="btn-icon dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Switch to dark mode"
+            type="button"
+          >
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+
+          <!-- Get Started CTA -->
+          <a href="disease.html" class="btn btn--cta">Get Started</a>
+
+          <!-- Hamburger Menu (mobile only) -->
+          <button
+            class="btn-icon hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <span class="section-header__eyebrow">Smart Farming Tool</span>
+    <h1 class="page-header__title">Crop Recommendation</h1>
+    <p class="page-header__subtitle">Enter your farm conditions to get a crop recommendation backed by agricultural science and tailored to Ethiopian growing conditions.</p>
+  </div>
+</section>
+
+<!-- Recommendation Section -->
+<section class="recommendation-section section" aria-labelledby="rec-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__eyebrow">Fill in Your Farm Details</span>
+      <h2 class="section-header__title" id="rec-heading">Get Your Crop Recommendation</h2>
+    </div>
+
+    <form id="recommendation-form" class="recommendation-form" novalidate>
+      <div class="form-grid">
+        <!-- Country -->
+        <div class="form-group">
+          <label class="form-label" for="country">Country <span class="required-mark">*</span></label>
+          <input type="text" id="country" name="country" class="form-input" placeholder="e.g. Ethiopia" autocomplete="country-name">
+          <span class="field-error" id="country-error" role="alert"></span>
+        </div>
+        <!-- Region -->
+        <div class="form-group">
+          <label class="form-label" for="region">Region / Province <span class="required-mark">*</span></label>
+          <input type="text" id="region" name="region" class="form-input" placeholder="e.g. Oromia, Arsi Zone">
+          <span class="field-error" id="region-error" role="alert"></span>
+        </div>
+        <!-- Season -->
+        <div class="form-group">
+          <label class="form-label" for="season">Growing Season <span class="required-mark">*</span></label>
+          <select id="season" name="season" class="form-select">
+            <option value="">Select season…</option>
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+            <option value="Autumn">Autumn</option>
+            <option value="Winter">Winter</option>
+            <option value="Dry">Dry Season</option>
+            <option value="Wet">Wet Season</option>
+          </select>
+          <span class="field-error" id="season-error" role="alert"></span>
+        </div>
+        <!-- Temperature -->
+        <div class="form-group">
+          <label class="form-label" for="temperature">Average Temperature (°C) <span class="required-mark">*</span></label>
+          <input type="number" id="temperature" name="temperature" class="form-input" placeholder="e.g. 25" min="-20" max="60">
+          <span class="field-error" id="temperature-error" role="alert"></span>
+        </div>
+        <!-- Rainfall -->
+        <div class="form-group">
+          <label class="form-label" for="rainfall">Annual Rainfall (mm) <span class="required-mark">*</span></label>
+          <input type="number" id="rainfall" name="rainfall" class="form-input" placeholder="e.g. 800" min="0">
+          <span class="field-error" id="rainfall-error" role="alert"></span>
+        </div>
+        <!-- Humidity -->
+        <div class="form-group">
+          <label class="form-label" for="humidity">Average Humidity (%) <span class="required-mark">*</span></label>
+          <input type="number" id="humidity" name="humidity" class="form-input" placeholder="e.g. 65" min="0" max="100">
+          <span class="field-error" id="humidity-error" role="alert"></span>
+        </div>
+        <!-- Soil Type -->
+        <div class="form-group">
+          <label class="form-label" for="soilType">Soil Type <span class="required-mark">*</span></label>
+          <select id="soilType" name="soilType" class="form-select">
+            <option value="">Select soil type…</option>
+            <option value="Clay">Clay</option>
+            <option value="Sandy">Sandy</option>
+            <option value="Loam">Loam</option>
+            <option value="Silt">Silt</option>
+            <option value="Peat">Peat</option>
+            <option value="Chalk">Chalk</option>
+          </select>
+          <span class="field-error" id="soilType-error" role="alert"></span>
+        </div>
+        <!-- Soil pH -->
+        <div class="form-group">
+          <label class="form-label" for="soilPh">Soil pH <span class="required-mark">*</span></label>
+          <input type="number" id="soilPh" name="soilPh" class="form-input" placeholder="e.g. 6.5" min="0" max="14" step="0.1">
+          <span class="field-error" id="soilPh-error" role="alert"></span>
+        </div>
+        <!-- Previous Crop -->
+        <div class="form-group">
+          <label class="form-label" for="previousCrop">Previous Crop <span class="required-mark">*</span></label>
+          <input type="text" id="previousCrop" name="previousCrop" class="form-input" placeholder="e.g. Teff">
+          <span class="field-error" id="previousCrop-error" role="alert"></span>
+        </div>
+        <!-- Submit -->
+        <div class="form-group field--full" style="grid-column:1/-1;margin-top:0.5rem">
+          <button type="submit" id="rec-submit-btn" class="btn btn--primary btn--lg" style="width:100%">
+            <i data-lucide="sprout"></i>
+            <span id="rec-submit-text">Get My Crop Recommendation</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Recommendation Output Panel (hidden until valid submission) -->
+    <div class="recommendation-output" id="recommendation-output" hidden>
+      <div class="recommendation-output__header">
+        <i data-lucide="sprout" style="width:32px;height:32px;color:var(--primary-green)"></i>
+        <h2 style="margin:0">Your Recommended Crop</h2>
+      </div>
+      <div class="output-grid" id="output-grid">
+        <div class="output-field">
+          <p class="output-field__label">Recommended Crop</p>
+          <p class="output-field__value" id="out-crop">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Scientific Explanation</p>
+          <p class="output-field__value" id="out-explanation">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Expected Yield</p>
+          <p class="output-field__value" id="out-yield">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Growing Duration</p>
+          <p class="output-field__value" id="out-duration">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Water Requirement</p>
+          <p class="output-field__value" id="out-water">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Fertilizer Advice</p>
+          <p class="output-field__value" id="out-fertilizer">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Profitability Estimate</p>
+          <p class="output-field__value" id="out-profit">—</p>
+        </div>
+        <div class="output-field">
+          <p class="output-field__label">Market Demand</p>
+          <p class="output-field__value" id="out-market">—</p>
+        </div>
+      </div>
+      <div style="margin-top:2rem;text-align:center">
+        <button class="btn btn--outline" id="reset-recommendation-btn" type="button">
+          <i data-lucide="refresh-cw"></i>
+          New Recommendation
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Footer Logo & Tagline -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Agro AI Home">
+            <i data-lucide="sprout"></i>
+            <span>Agro AI</span>
+          </a>
+          <p class="footer__tagline">Smarter Farming with AI — for Ethiopia and Oromia</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__menu" role="list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="disease.html" class="footer__link">Disease Detection</a></li>
+            <li><a href="weather.html" class="footer__link">Weather</a></li>
+            <li><a href="recommendation.html" class="footer__link">Crop Recommendation</a></li>
+            <li><a href="learning.html" class="footer__link">Learning Center</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer__social-section">
+          <h4 class="footer__heading">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Follow us on Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Connect on LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Agro AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+  <!-- Page-specific JS -->
+  <script src="assets/js/recommendation.js"></script>
+</body>
+</html>
